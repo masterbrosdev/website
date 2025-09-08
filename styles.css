@@ -168,9 +168,12 @@ body, html, button, a {
     background-color: rgba(0, 0, 0, 0.8); /* Black transparent background */
     z-index: 10000; /* Above all other elements */
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
     animation: fadeIn 0.5s ease;
-    overflow: hidden;
+    overflow-y: auto; /* Allow vertical scrolling */
+    overflow-x: hidden; /* Hide horizontal scrollbar */
+    padding: 20px 0; /* Add padding for better spacing */
+    -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
 }
 
 .popup-content {
@@ -181,6 +184,9 @@ body, html, button, a {
     animation: scaleUp 0.5s ease;
     max-width: 500px;
     width: 80%;
+    margin: 20px auto; /* Center horizontally and add vertical spacing */
+    min-height: fit-content; /* Ensure content fits properly */
+    max-height: none; /* Remove height restrictions */
 }
 
 .project-box {
@@ -255,5 +261,28 @@ body, html, button, a {
     }
     to {
         transform: scale(1);
+    }
+}
+
+/* Mobile responsiveness for popup */
+@media (max-width: 768px) {
+    .popup-content {
+        width: 95%;
+        margin: 10px auto;
+        padding: 15px;
+    }
+    
+    .project-box {
+        margin: 10px 0;
+        padding: 15px;
+    }
+    
+    .project-box h2 {
+        font-size: 1.2em;
+    }
+    
+    .project-box p {
+        font-size: 0.9em;
+        line-height: 1.4;
     }
 }
